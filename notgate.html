@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FoC</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <style>
+        .column {
+            padding: 20px;
+            text-align: center;
+            border-radius: 8px;
+        }
+
+        button {
+            margin: 10px;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #f1f1f1;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container text-center">
+    <section>
+        <h2 class="my-4">NOT Gate</h2>
+        <div class="row">
+            <div class="col-md-6 column" style="background-color: #aaa;">
+                <h2>Input</h2>
+                <button style="width: 100px; height: 40px;" onclick="document.getElementById('belizeImage').src='noton2.png'">ON</button>
+                <button style="width: 100px; height: 40px;" onclick="document.getElementById('belizeImage').src='notoff2.png'">OFF</button>
+            </div>
+            <div class="col-md-6 column" style="background-color: #bbb;">
+                <h2>Output</h2>
+                <hr>
+                <img id="belizeImage" src="noton2.png" alt="NOT Gate Output" class="img-fluid" width="400" height="86">
+            </div>
+        </div>
+        <a href="index.html" class="btn btn-primary mt-4">Back to Home</a>
+    </section>
+</div>
+
+<footer>
+    <p>&copy; Powered by UB</p>
+</footer>
+
+</body>
+</html>
