@@ -26,56 +26,64 @@
     </style>
 </head>
 <body>
+    <h2>AND Gate Simulation</h2>
+    <p>Toggle the inputs and click "Run" to see the AND gate output.</p>
+    
+    <button class="button" onclick="and()">Run</button>
 
-<script>
-    function toggleImage() {
-        const image = document.getElementById("toggleImage");
-        if (image.src.includes("button-off-xxl.png")) {
-            image.src = "https://www.iconsdb.com/icons/preview/green/button-on-xxl.png";
-        } else {
-            image.src = "https://www.iconsdb.com/icons/preview/red/button-off-xxl.png";
+    <div class="container">
+        <div>
+            <h3>Inputs</h3>
+            <img src="button-off-xxl.png" id="toggleImage" class="image-button" onclick="toggleImage(); toggleInputOne();" alt="Toggle Button 1">
+            <br>
+            <img src="button-off-xxl.png" id="toggleImage2" class="image-button" onclick="toggleImage2(); toggleInputTwo();" alt="Toggle Button 2">
+        </div>
+        
+        <div>
+            <h3>Output</h3>
+            <img id="andGate" src="and2off.png" alt="AND Gate Output">
+        </div>
+    </div>
+
+    <a href="project.html" class="back-link">Back to projects</a>
+
+    <script>
+        var inputOneIsOn = false; 
+        var inputTwoIsOn = false;
+
+        function toggleImage() {
+            var imgElement = document.getElementById('toggleImage');
+            imgElement.src = imgElement.src.includes("button-off-xxl.png") ? "button-on-xxl.png" : "button-off-xxl.png";
         }
-    }
 
-    function toggleImage2() {
-        const image = document.getElementById("toggleImage2");
-        if (image.src.includes("button-off-xxl.png")) {
-            image.src = "https://www.iconsdb.com/icons/preview/green/button-on-xxl.png";
-        } else {
-            image.src = "https://www.iconsdb.com/icons/preview/red/button-off-xxl.png";
+        function toggleImage2() {
+            var imgElement = document.getElementById('toggleImage2');
+            imgElement.src = imgElement.src.includes("button-off-xxl.png") ? "button-on-xxl.png" : "button-off-xxl.png";
         }
-    }
 
-    function and() {
-        const img1 = document.getElementById("toggleImage");
-        const img2 = document.getElementById("toggleImage2");
-        const andGate = document.getElementById("andGate");
-
-        if (img1.src.includes("button-on-xxl.png") && img2.src.includes("button-on-xxl.png")) {
-            andGate.src = "and2on.PNG"; // Replace with the path to the "on" state of the AND gate
-        } else {
-            andGate.src = "and2off.PNG"; // Replace with the path to the "off" state of the AND gate
+        function toggleInputOne() { 
+            inputOneIsOn = !inputOneIsOn; 
         }
-    }
-</script>
 
-<button class="button" onclick="and()">Run</button>
-<p>
-    <table>
-        <tr>
-            <td>
-                <img src="https://www.iconsdb.com/icons/preview/red/button-off-xxl.png" id="toggleImage" onclick="toggleImage();" />
-                <br>
-                <img src="https://www.iconsdb.com/icons/preview/red/button-off-xxl.png" id="toggleImage2" onclick="toggleImage2();" />
-            </td>
-            <td>
-                <img id="andGate" src="and2off.PNG" alt="AND Gate">
-            </td>
-        </tr>
-    </table>
-</p>
+        function toggleInputTwo() { 
+            inputTwoIsOn = !inputTwoIsOn; 
+        }
 
-<a href="index.html">Back to Home</a>
+        function and() {
+            const andGateImage = document.getElementById('andGate');
+            if (inputOneIsOn && inputTwoIsOn) {
+                andGateImage.src = 'and2on.png';
+            } else if (!inputOneIsOn && inputTwoIsOn) {
+                andGateImage.src = 'andoffon.png';
+            } else if (inputOneIsOn && !inputTwoIsOn) {
+                andGateImage.src = 'andonoff.png';
+            } else {
+                andGateImage.src = 'and2off.png';
+            }
 
+            console.log('Input one is on:', inputOneIsOn);
+            console.log('Input two is on:', inputTwoIsOn);
+        }
+    </script>
 </body>
 </html>
